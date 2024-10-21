@@ -5,7 +5,8 @@ const UseCallbackComp = () => {
     const [skill, setSkill] = useState('');
     const [skills, setSkills] = useState([]);
 
-    const addSkill=useCallback(()=>{
+    const addSkill=useCallback((e)=>{
+        e.preventDefault();
         if(!skills.includes(skill) &&skill.trim()){ 
             setSkills((prevSkills) => [...prevSkills, skill.trim()])
             setSkill('')
@@ -16,7 +17,7 @@ const UseCallbackComp = () => {
         setSkills((prevSkills) => [...prevSkills.filter((e)=>e!==skill)])
     },[])
     return (
-        <div>
+        <form>
             <h2 id='heading'>Manage Your Skills</h2>
             <input
                 id="skill-input"
@@ -27,7 +28,7 @@ const UseCallbackComp = () => {
             />
             <button id="skill-add-btn" onClick={addSkill}>Add Skill</button>
             <SkillList skills={skills} removeSkill={removeSkill} />
-        </div>
+        </form>
     )
 }
 
