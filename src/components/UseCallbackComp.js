@@ -3,7 +3,7 @@ import SkillList from './SkillList';
 
 const UseCallbackComp = () => {
     const [skill, setSkill] = useState('');
-    const [skills, setSkills] = useState(['python','java','mongo','gmail','html','javascript']);
+    const [skills, setSkills] = useState(["HTML","CSS","JavaScript", "React"]);
 
     const addSkill=useCallback((e)=>{
         e.preventDefault();
